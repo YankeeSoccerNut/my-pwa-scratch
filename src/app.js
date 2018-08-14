@@ -1,15 +1,30 @@
-import React, {Component} from 'react'
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
 
-import 'normalize.css'
+import Header from './components/Header/Header'
+import About from './components/About/About'
+// import Post from './components/Post/Post'
+import PostDetail from './components/PostDetail/PostDetail'
+import styles from './app.css'
+import NotFound from './components/NotFound/NotFound'
+import Home from './components/Home/Home'
 
-import styles from './styles.css'
-
-class App extends Component {
-  render () {
-    return (
-      <h1 className={styles.headingOne}>Hello World Again</h1>
-    )
-  }
-}
+const App = () => (
+  <Router>
+    <div className={styles.container}>
+      <Header />
+      <Switch >
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route path='/post/:slug' component={PostDetail} />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  </Router>
+)
 
 export default App

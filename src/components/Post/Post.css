@@ -1,0 +1,18 @@
+.title {
+  font-size: 3rem;
+}
+
+.link {
+  color: #2f89de;
+}
+
+.link:hover, 
+.link:focus {
+  color: #30699e;;
+  transition: color 0.3s ease;
+}
+
+.content {
+  font-size: 1.8rem;
+  line-height: 1.7;
+}
