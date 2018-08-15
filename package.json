@@ -1,16 +1,21 @@
 {
   "scripts": {
     "dev": "webpack --mode development",
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dashboard -- webpack-dev-server --mode development --open",
     "test": "jest"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme-to-json": "^3.3.4",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",
@@ -23,5 +28,21 @@
     "webpack-cli": "^3.1.0",
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^3.1.5"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    }
   }
 }

@@ -2,12 +2,12 @@ import React from 'react'
 
 import Post from '../Post/Post'
 
-import posts from '../../blog-posts.json'
-
-const Home = () => {
+const Home = ({posts}) => {
   return (
     <div>
-      {posts.posts.map(post => <Post {...post} key={post.slug} showTitleLink />)}
+      {posts.length
+      ? posts.map(post => <Post {...post} key={post.slug} showTitleLink />)
+      : 'Awaiting Posts'}
     </div>
   )
 }
