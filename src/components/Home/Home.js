@@ -7,7 +7,7 @@ import posts from '../../blog-posts.json'
 const Home = () => {
   return (
     <div>
-      {posts.posts.map(post => <Post {...post} key={post.slug} />)}
+      {posts.posts.map(post => <Post {...post} key={post.slug} showTitleLink />)}
     </div>
   )
 }

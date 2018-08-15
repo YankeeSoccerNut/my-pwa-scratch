@@ -4,8 +4,8 @@ import Post from '../Post/Post'
 
 const PostDetail = (props) => (
   <div>
-    <Post />
+    <Post {...props.post} />
   </div>
 )
 
-export default PostDetail;
+export default PostDetail
