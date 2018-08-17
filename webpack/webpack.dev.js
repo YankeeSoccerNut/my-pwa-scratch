@@ -1,11 +1,11 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
-
-const srcDir = resolve(__dirname, 'src')
+const OfflinePlugin = require('offline-plugin')
 
 module.exports = {
-    entry: `${srcDir}/index.js`,
+    context: resolve(__dirname, '../src'),
+    entry: `./index.js`,
     output: {
         filename: 'bundle.js',
         publicPath: '/'
@@ -43,9 +43,10 @@ module.exports = {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: `${srcDir}/index.html`,
-        filename: './index.html'
+        template: `./index.html`,
+        filename: 'index.html'
       }),
-      new DashboardPlugin()
+      new DashboardPlugin(),
+      new OfflinePlugin()
     ]
 }

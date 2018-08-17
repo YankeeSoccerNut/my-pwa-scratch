@@ -1,10 +1,11 @@
 const { resolve } = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebPackPlugin = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const OfflinePlugin = require('offline-plugin')
 
 module.exports = {
-  context: resolve(__dirname, 'src'),
+  context: resolve(__dirname, '../src'),
   entry: {
     app: `./index.js`,
     vendor: ['react', 'react-dom', 'react-router-dom']
@@ -50,9 +51,11 @@ module.exports = {
     }),
     new CleanWebPackPlugin('dist'),
     new HtmlWebpackPlugin({
-      filename: '200.html',
+      filename: 'index.html',
       template: './index.html'
-    })],
+    }),
+    new OfflinePlugin(),
+  ],
   performance: {
     hints: 'error',
   },
